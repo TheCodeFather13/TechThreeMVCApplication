@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechThreeMVCApplication", "TechThreeMVCApplication\TechThreeMVCApplication.csproj", "{84928A62-ADC6-4D6D-BCEF-06D58F058232}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84928A62-ADC6-4D6D-BCEF-06D58F058232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84928A62-ADC6-4D6D-BCEF-06D58F058232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84928A62-ADC6-4D6D-BCEF-06D58F058232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84928A62-ADC6-4D6D-BCEF-06D58F058232}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12BF00D7-3FCA-4FC1-A77F-1A9FF288370C}
+	EndGlobalSection
+EndGlobal
