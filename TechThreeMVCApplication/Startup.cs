@@ -57,10 +57,14 @@ namespace TechThreeMVCApplication
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseAuthorization();
+            app.UseAuthorization();      
 
             app.UseEndpoints(endpoints =>
-            {
+            { 
+                endpoints.MapControllerRoute(
+                  name: "Admin",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
                 endpoints.MapRazorPages();
             });
         }
