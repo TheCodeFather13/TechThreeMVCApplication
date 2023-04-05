@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using TechThreeMVCApplication.Interfaces;
 
 namespace TechThreeMVCApplication.Entities
 {
-    public class MediaType
+    public class MediaType : IPrimaryProperties
     {
         public int Id { get; set; }
 
