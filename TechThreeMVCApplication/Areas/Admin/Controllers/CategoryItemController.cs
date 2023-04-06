@@ -25,6 +25,10 @@ namespace TechThreeMVCApplication.Areas.Admin.Controllers
         public async Task<IActionResult> Index(int categoryId)
         {
             List<CategoryItem> list = await (from catItem in _context.CategoryItem
+                                             join contentItem in _context.Content
+                                             on catItem.Id equals contentItem.CategoryItem.Id
+                                             into gj
+                                             from subContent in gj.DefaultIfEmpty()
                                              where catItem.CategoryId == categoryId
                                              select new CategoryItem
                                              {
@@ -32,7 +36,9 @@ namespace TechThreeMVCApplication.Areas.Admin.Controllers
                                                  Title = catItem.Title,
                                                  Description = catItem.Description,
                                                  DateTimeItemReleased = catItem.DateTimeItemReleased,
-                                                 MediaTypeId = catItem.MediaTypeId
+                                                 MediaTypeId = catItem.MediaTypeId,
+                                                 CategoryId = categoryId,
+                                                 ContentId = (subContent != null) ? subContent.Id : 0
                                              }).ToListAsync();
 
             ViewBag.CategoryId = categoryId;
@@ -94,11 +100,17 @@ namespace TechThreeMVCApplication.Areas.Admin.Controllers
                 return NotFound();
             }
 
+            List<MediaType> mediaTypes = await _context.MediaType.ToListAsync();
+
             var categoryItem = await _context.CategoryItem.FindAsync(id);
+            
             if (categoryItem == null)
             {
                 return NotFound();
             }
+
+            categoryItem.MediaTypes = mediaTypes.ConvertToSelecList(categoryItem.MediaTypeId);
+
             return View(categoryItem);
         }
 
@@ -132,7 +144,7 @@ namespace TechThreeMVCApplication.Areas.Admin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new {categoryId = categoryItem.CategoryId});
             }
             return View(categoryItem);
         }
@@ -163,7 +175,7 @@ namespace TechThreeMVCApplication.Areas.Admin.Controllers
             var categoryItem = await _context.CategoryItem.FindAsync(id);
             _context.CategoryItem.Remove(categoryItem);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new {categoryId = categoryItem.CategoryId});
         }
 
         private bool CategoryItemExists(int id)
