@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33130.400
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33103.201
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechThreeMVCApplication", "TechThreeMVCApplication\TechThreeMVCApplication.csproj", "{84928A62-ADC6-4D6D-BCEF-06D58F058232}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechThreeMVCApplication", "TechThreeMVCApplication\TechThreeMVCApplication.csproj", "{84928A62-ADC6-4D6D-BCEF-06D58F058232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
